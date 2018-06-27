@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.adzumi.zumievents.MainActivity"
+    tools:context="com.adzumi.zumievents.ui.MainActivity"
     android:background="@color/colorPrimary">
 
     <LinearLayout
@@ -74,7 +74,7 @@
         android:fontFamily="@font/luckiest_guy_regular"
         android:text="ZumiEvents"
         android:textColor="@color/colorWhite"
-        android:textSize="40dp"
+        android:textSize="50dp"
         android:textStyle="bold" />
 
 </RelativeLayout>
