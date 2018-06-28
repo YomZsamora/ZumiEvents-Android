@@ -13,15 +13,15 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private TextView mRegisterTextView;
-//    @BindView(R.id.registerTextView) TextView mRegisterTextView;
+//    private TextView mRegisterTextView;
+    @BindView(R.id.registerTextView) TextView mRegisterTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-//        ButterKnife.bind(this);
-        mRegisterTextView = (TextView) findViewById(R.id.registerTextView);
+        ButterKnife.bind(this);
+//        mRegisterTextView = (TextView) findViewById(R.id.registerTextView);
 
         mRegisterTextView.setOnClickListener(this);
     }
