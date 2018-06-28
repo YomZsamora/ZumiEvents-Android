@@ -71,7 +71,7 @@
         android:layout_height="wrap_content"
         android:layout_above="@+id/linearLayout"
         android:layout_centerHorizontal="true"
-        android:fontFamily="@font/luckiest_guy_regular"
+        android:fontFamily="@font/lucythecat_regular"
         android:text="ZumiEvents"
         android:textColor="@color/colorWhite"
         android:textSize="50dp"

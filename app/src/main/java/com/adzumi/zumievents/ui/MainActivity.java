@@ -13,7 +13,6 @@ import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
-//    private TextView mRegisterTextView;
     @BindView(R.id.registerTextView) TextView mRegisterTextView;
 
     @Override
@@ -21,7 +20,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
-//        mRegisterTextView = (TextView) findViewById(R.id.registerTextView);
 
         mRegisterTextView.setOnClickListener(this);
     }
