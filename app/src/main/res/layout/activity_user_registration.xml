@@ -5,27 +5,29 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.adzumi.zumievents.ui.UserRegistrationActivity"
-    android:background="@color/colorPrimary">
+    android:background="@drawable/concert">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="30dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/linearLayout">
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="46dp"
+        android:orientation="vertical"
+        android:padding="30dp">
 
         <EditText
             android:id="@+id/nameEditText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:background="@android:color/white"
+            android:background="@drawable/transparent_edittext"
             android:hint="Name"
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="8dp"
             android:textColor="@android:color/black"
+            android:textColorHint="@color/colorWhite"
             android:textSize="15sp" />
 
         <EditText
@@ -33,12 +35,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:background="@android:color/white"
+            android:background="@drawable/transparent_edittext"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="8dp"
             android:textColor="@android:color/black"
+            android:textColorHint="@color/colorWhite"
             android:textSize="15sp" />
 
         <EditText
@@ -46,12 +49,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:background="@android:color/white"
+            android:background="@drawable/transparent_edittext"
             android:hint="Password"
             android:inputType="textPassword"
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="8dp"
             android:textColor="@android:color/black"
+            android:textColorHint="@color/colorWhite"
             android:textSize="15sp" />
 
         <EditText
@@ -59,12 +63,13 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="10dp"
-            android:background="@android:color/white"
+            android:background="@drawable/transparent_edittext"
             android:hint="Confirm Password"
             android:inputType="textPassword"
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="8dp"
             android:textColor="@android:color/black"
+            android:textColorHint="@color/colorWhite"
             android:textSize="15sp" />
 
 
@@ -95,11 +100,11 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Create Account"
-        android:textColor="@color/colorAccent"
-        android:textSize="30dp"
-        android:textStyle="bold"
         android:layout_above="@+id/linearLayout"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:text="Create Account"
+        android:textColor="@color/colorPrimaryDark"
+        android:textSize="30dp"
+        android:textStyle="bold" />
 
 </RelativeLayout>

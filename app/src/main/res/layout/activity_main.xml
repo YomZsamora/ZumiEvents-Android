@@ -5,39 +5,42 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.adzumi.zumievents.ui.MainActivity"
-    android:background="@color/colorPrimary">
+    android:background="@drawable/concert">
 
     <LinearLayout
-        android:orientation="vertical"
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="30dp"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"
-        android:id="@+id/linearLayout">
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="34dp"
+        android:orientation="vertical">
 
         <EditText
             android:id="@+id/emailEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
+            android:layout_height="58dp"
+            android:alpha=".7"
+            android:background="@color/colorPrimaryDark"
             android:hint="Email"
             android:inputType="textEmailAddress"
             android:nextFocusDown="@+id/passwordEditText"
             android:padding="10dp"
-            android:layout_marginBottom="10dp"
+            android:textColorHint="@color/colorWhite"
             android:textColor="@android:color/black"
             android:textSize="20sp" />
 
         <EditText
             android:id="@+id/passwordEditText"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/white"
+            android:layout_height="60dp"
+            android:alpha=".7"
+            android:background="@color/colorPrimaryDark"
             android:hint="Password"
             android:inputType="textPassword"
             android:nextFocusDown="@+id/passwordEditText"
-            android:padding="10dp"
+            android:paddingLeft="10dp"
+            android:textColorHint="@color/colorWhite"
             android:textColor="@android:color/black"
             android:textSize="20sp" />
 
@@ -46,7 +49,6 @@
             android:id="@+id/passwordLoginButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="15dp"
             android:background="@color/colorPrimaryDark"
             android:padding="10dp"
             android:text="Log in"
@@ -69,8 +71,9 @@
         android:id="@+id/mainlogo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/linearLayout"
+        android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
+        android:layout_marginTop="132dp"
         android:fontFamily="@font/lucythecat_regular"
         android:text="ZumiEvents"
         android:textColor="@color/colorWhite"
