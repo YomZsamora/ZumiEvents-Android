@@ -7,6 +7,6 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 public interface API_Instance {
-    @GET("/events/search/")
+    @GET("events/search/")
     Call<Events> getEvents(@Query("location.address") String eventLocation, @Query("token") String myToken);
 }

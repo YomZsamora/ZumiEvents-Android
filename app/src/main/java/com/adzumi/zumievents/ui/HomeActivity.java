@@ -6,13 +6,24 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.SearchView;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
-import android.view.MenuItem;
 
+import com.adzumi.zumievents.Constants;
 import com.adzumi.zumievents.R;
+import com.adzumi.zumievents.models.Events;
+import com.adzumi.zumievents.services.API_Instance;
+import com.adzumi.zumievents.services.RetrofitClient;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 public class HomeActivity extends AppCompatActivity {
+
+    public static final String TAG = HomeActivity.class.getSimpleName();
+    private API_Instance mService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,6 +55,8 @@ public class HomeActivity extends AppCompatActivity {
             public boolean onQueryTextSubmit(String query) {
                 Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
                 intent.putExtra("query", query);
+                Log.v(TAG,"LOCATION NAME: " + query);
+                getMyEvents(query);
                 startActivity(intent);
                 return false;
             }
@@ -51,15 +64,11 @@ public class HomeActivity extends AppCompatActivity {
         return true;
     }
 
-//    @Override
-//    public boolean onOptionsItemSelected(MenuItem item) {
-//        int id = item.getItemId();
-//        if (id == R.id.action_logout) {
-//            logout();
-//            return true;
-//        }
-//        return super.onOptionsItemSelected(item);
-//    }
+    public void getMyEvents(String query) {
+        API_Instance service = RetrofitClient.getClient("https://www.eventbriteapi.com/v3/").create(API_Instance.class);
+        Call<Events> call = service.getEvents("nairobi", Constants.EVENTBRITE_OAUTHTOKEN                                                                                                                                                q);
+        Log.v("MY URL", String.valueOf(call.request().url()));
+    }
 
 
 }
