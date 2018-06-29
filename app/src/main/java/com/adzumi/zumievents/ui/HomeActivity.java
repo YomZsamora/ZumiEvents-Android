@@ -30,7 +30,7 @@ public class HomeActivity extends AppCompatActivity {
                 (SearchView) menu.findItem(R.id.search).getActionView();
         searchView.setSearchableInfo(
                 searchManager.getSearchableInfo(getComponentName()));
-        searchView.setQueryHint("Search Events ...");
+        searchView.setQueryHint("Search City ...");
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
 
