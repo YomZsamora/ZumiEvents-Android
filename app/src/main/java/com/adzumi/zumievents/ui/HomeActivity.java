@@ -9,12 +9,17 @@ import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.widget.Toast;
 
 import com.adzumi.zumievents.Constants;
 import com.adzumi.zumievents.R;
+import com.adzumi.zumievents.models.Event;
 import com.adzumi.zumievents.models.Events;
 import com.adzumi.zumievents.services.API_Instance;
 import com.adzumi.zumievents.services.RetrofitClient;
+import com.google.gson.Gson;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -66,8 +71,23 @@ public class HomeActivity extends AppCompatActivity {
 
     public void getMyEvents(String query) {
         API_Instance service = RetrofitClient.getClient("https://www.eventbriteapi.com/v3/").create(API_Instance.class);
-        Call<Events> call = service.getEvents("nairobi", Constants.EVENTBRITE_OAUTHTOKEN                                                                                                                                                q);
+        Call<Events> call = service.getEvents(query, Constants.EVENTBRITE_OAUTHTOKEN);
         Log.v("MY URL", String.valueOf(call.request().url()));
+
+        call.enqueue(new Callback<Events>() {
+            @Override
+            public void onResponse(Call<Events> call, Response<Events> response) {
+                List<Event> events = response.body().getEvents();
+                Gson gson = new Gson();
+                String eventsJson = gson.toJson(events);
+                Log.v(TAG, "MY JSON RESPONSE: " + eventsJson);
+            }
+
+            @Override
+            public void onFailure(Call<Events> call, Throwable t) {
+                Toast.makeText(HomeActivity.this, "Something went wrong...Please try later!", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
 
