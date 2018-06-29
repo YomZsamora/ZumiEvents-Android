@@ -1,5 +1,6 @@
 package com.adzumi.zumievents.ui;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -35,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             finish();
         }
         if (view == mPasswordLoginButton) {
-            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
+            Intent intent = new Intent(MainActivity.this, IntroActivity.class);
             startActivity(intent);
             finish();
         }

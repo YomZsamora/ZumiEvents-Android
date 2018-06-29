@@ -14,21 +14,22 @@
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity
             android:name=".ui.UserRegistrationActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.HomeActivity"
             android:theme="@style/AppTheme"
             android:windowSoftInputMode="adjustPan">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.adzumi.zumievents.ui.MainActivity">
-            </meta-data>
+                android:value="com.adzumi.zumievents.ui.MainActivity"></meta-data>
         </activity>
+        <activity android:name=".ui.IntroActivity"></activity>
     </application>
 
 </manifest>
