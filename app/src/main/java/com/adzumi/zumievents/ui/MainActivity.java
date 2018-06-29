@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             finish();
         }
         if (view == mPasswordLoginButton) {
-            Intent intent = new Intent(MainActivity.this, IntroActivity.class);
+            Intent intent = new Intent(MainActivity.this, HomeActivity.class);
             startActivity(intent);
             finish();
         }
