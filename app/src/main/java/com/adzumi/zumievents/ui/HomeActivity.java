@@ -78,9 +78,12 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Events> call, Response<Events> response) {
                 List<Event> events = response.body().getEvents();
-                Gson gson = new Gson();
-                String eventsJson = gson.toJson(events);
-                Log.v(TAG, "MY JSON RESPONSE: " + eventsJson);
+                for (Event e : events) {
+                    Log.d(TAG, "Event " + e.getDescription().getText());
+                }
+//                Gson gson = new Gson();
+//                String eventsJson = gson.toJson(events);
+//                Log.v(TAG, "MY JSON RESPONSE: " + eventsJson);
             }
 
             @Override
