@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
@@ -13,6 +15,7 @@ import android.widget.Toast;
 
 import com.adzumi.zumievents.Constants;
 import com.adzumi.zumievents.R;
+import com.adzumi.zumievents.adapters.CurrentLocationAdapter;
 import com.adzumi.zumievents.models.Event;
 import com.adzumi.zumievents.models.Events;
 import com.adzumi.zumievents.services.API_Instance;
@@ -28,12 +31,15 @@ import retrofit2.Response;
 public class HomeActivity extends AppCompatActivity {
 
     public static final String TAG = HomeActivity.class.getSimpleName();
-    private API_Instance mService;
+    private CurrentLocationAdapter adapter;
+    private RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
+
+        getMyEvents("nairobi");
     }
 
     @Override
@@ -78,12 +84,13 @@ public class HomeActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Events> call, Response<Events> response) {
                 List<Event> events = response.body().getEvents();
+                getCurrentLocationEvents(events);
                 for (Event e : events) {
                     Log.d(TAG, "Event " + e.getDescription().getText());
                 }
-//                Gson gson = new Gson();
-//                String eventsJson = gson.toJson(events);
-//                Log.v(TAG, "MY JSON RESPONSE: " + eventsJson);
+//              Gson gson = new Gson();
+//              String eventsJson = gson.toJson(events);
+//              Log.v(TAG, "MY JSON RESPONSE: " + eventsJson);
             }
 
             @Override
@@ -93,5 +100,11 @@ public class HomeActivity extends AppCompatActivity {
         });
     }
 
-
+    public void getCurrentLocationEvents(List<Event> events) {
+        recyclerView = findViewById(R.id.myEventsRecyclerView);
+        adapter = new CurrentLocationAdapter(this,events);
+        RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(HomeActivity.this);
+        recyclerView.setLayoutManager(layoutManager);
+        recyclerView.setAdapter(adapter);
+    }
 }
