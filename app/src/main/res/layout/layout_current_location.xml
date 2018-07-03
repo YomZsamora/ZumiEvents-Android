@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="300dp">
+
+    <ImageView
+        android:id="@+id/eventImageView"
+        android:layout_width="328dp"
+        android:layout_height="169dp"
+        android:contentDescription="Current Location"
+        app:srcCompat="@drawable/curr_loc"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="7dp" />
+
+    <TextView
+        android:id="@+id/eventDateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="eventDate"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="241dp" />
+
+    <TextView
+        android:id="@+id/eventTitleTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="eventTitle"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="196dp" />
+
+    <TextView
+        android:id="@+id/eventDescriptionTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="eventDescription"
+        tools:layout_editor_absoluteX="28dp"
+        tools:layout_editor_absoluteY="222dp" />
+</android.support.constraint.ConstraintLayout>
