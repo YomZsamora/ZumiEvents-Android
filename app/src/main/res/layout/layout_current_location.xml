@@ -3,38 +3,69 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="300dp">
+    android:layout_height="wrap_content">
 
     <ImageView
         android:id="@+id/eventImageView"
         android:layout_width="328dp"
         android:layout_height="169dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:contentDescription="Current Location"
-        app:srcCompat="@drawable/curr_loc"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="7dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/curr_loc" />
 
     <TextView
         android:id="@+id/eventDateTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="28dp"
+        android:fontFamily="@font/merriweather_lightitalic"
         android:text="eventDate"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="241dp" />
+        android:textSize="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eventDescriptionTextView" />
 
     <TextView
         android:id="@+id/eventTitleTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="28dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="16dp"
+        android:fontFamily="@font/merriweather_black"
         android:text="eventTitle"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="196dp" />
+        android:textColor="@color/colorPrimaryDark"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eventImageView" />
 
     <TextView
         android:id="@+id/eventDescriptionTextView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginLeft="28dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginStart="28dp"
+        android:layout_marginTop="4dp"
+        android:fontFamily="@font/merriweather_regular"
+        android:maxLines="3"
+        android:scrollbars="vertical"
         android:text="eventDescription"
-        tools:layout_editor_absoluteX="28dp"
-        tools:layout_editor_absoluteY="222dp" />
+        android:textSize="11dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/eventTitleTextView" />
+
 </android.support.constraint.ConstraintLayout>

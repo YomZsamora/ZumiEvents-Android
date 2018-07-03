@@ -2,6 +2,7 @@ package com.adzumi.zumievents.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -54,13 +55,14 @@ public class CurrentLocationAdapter extends RecyclerView.Adapter<CurrentLocation
 
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position) {
+        holder.eventDescription.setMovementMethod(new ScrollingMovementMethod());
         holder.eventTitle.setText(mEvents.get(position).getName().getText());
         holder.eventDescription.setText(mEvents.get(position).getDescription().getText());
         holder.eventDate.setText(mEvents.get(position).getCreated());
 
         Picasso.Builder builder = new Picasso.Builder(context);
         builder.downloader(new OkHttp3Downloader(context));
-        builder.build().load(mEvents.get(position).getLogo().getOriginal().getUrl())
+        builder.build().load(mEvents.get(position).getLogo().getUrl())
                 .placeholder((R.drawable.ic_launcher_background))
                 .error(R.drawable.ic_launcher_background)
                 .into(holder.coverImage);

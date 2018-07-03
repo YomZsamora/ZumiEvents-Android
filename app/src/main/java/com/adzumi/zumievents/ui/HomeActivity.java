@@ -1,5 +1,6 @@
 package com.adzumi.zumievents.ui;
 
+import android.app.ProgressDialog;
 import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
@@ -33,6 +34,7 @@ public class HomeActivity extends AppCompatActivity {
     public static final String TAG = HomeActivity.class.getSimpleName();
     private CurrentLocationAdapter adapter;
     private RecyclerView recyclerView;
+    ProgressDialog progressDialog;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -80,11 +82,16 @@ public class HomeActivity extends AppCompatActivity {
         Call<Events> call = service.getEvents(query, Constants.EVENTBRITE_OAUTHTOKEN);
         Log.v("MY URL", String.valueOf(call.request().url()));
 
+        progressDialog = new ProgressDialog(HomeActivity.this);
+        progressDialog.setMessage("Loading....");
+        progressDialog.show();
+
         call.enqueue(new Callback<Events>() {
             @Override
             public void onResponse(Call<Events> call, Response<Events> response) {
                 List<Event> events = response.body().getEvents();
                 getCurrentLocationEvents(events);
+                progressDialog.dismiss();
                 for (Event e : events) {
                     Log.d(TAG, "Event " + e.getDescription().getText());
                 }
