@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "640062642135",
+    "firebase_url": "https://zumievents-a97bb.firebaseio.com",
+    "project_id": "zumievents-a97bb",
+    "storage_bucket": "zumievents-a97bb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:640062642135:android:8aefad862ebf70ff",
+        "android_client_info": {
+          "package_name": "com.adzumi.zumievents"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "640062642135-de8rr16uo4mbisd4df08daahsbf1ccff.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.adzumi.zumievents",
+            "certificate_hash": "0e03a2fac69bbd4cf56bb98949145bdbac2435a9"
+          }
+        },
+        {
+          "client_id": "640062642135-dnb1o4537djtms21nbv0m8mmoa1l4pur.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsR--Th2AJDL1AzDS9RiCshbeZwwrdCc8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "640062642135-ilk8ejrs2le72973qp86a1tcksisua1a.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
