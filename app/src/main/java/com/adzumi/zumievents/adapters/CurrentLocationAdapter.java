@@ -16,6 +16,9 @@ import com.squareup.picasso.Picasso;
 
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
+
 public class CurrentLocationAdapter extends RecyclerView.Adapter<CurrentLocationAdapter.CustomViewHolder> {
 
     private List<Event> mEvents;
@@ -30,19 +33,14 @@ public class CurrentLocationAdapter extends RecyclerView.Adapter<CurrentLocation
 
         public final View mView;
 
-        TextView eventTitle;
-        TextView eventDescription;
-        TextView eventDate;
-        private ImageView coverImage;
+        @BindView(R.id.eventTitleTextView) TextView eventTitle;
+        @BindView(R.id.eventDescriptionTextView) TextView eventDescription;
+        @BindView(R.id.eventDateTextView) TextView eventDate;
 
         CustomViewHolder(View itemView) {
             super(itemView);
             mView = itemView;
-
-            eventTitle = mView.findViewById(R.id.eventTitleTextView);
-            eventDescription = mView.findViewById(R.id.eventDescriptionTextView);
-            eventDate = mView.findViewById(R.id.eventDateTextView);
-            coverImage = mView.findViewById(R.id.eventImageView);
+            ButterKnife.bind(this, mView);
         }
     }
 
@@ -60,12 +58,12 @@ public class CurrentLocationAdapter extends RecyclerView.Adapter<CurrentLocation
         holder.eventDescription.setText(mEvents.get(position).getDescription().getText());
         holder.eventDate.setText(mEvents.get(position).getCreated());
 
-        Picasso.Builder builder = new Picasso.Builder(context);
-        builder.downloader(new OkHttp3Downloader(context));
-        builder.build().load(mEvents.get(position).getLogo().getUrl())
-                .placeholder((R.drawable.ic_launcher_background))
-                .error(R.drawable.ic_launcher_background)
-                .into(holder.coverImage);
+//        Picasso.Builder builder = new Picasso.Builder(context);
+//        builder.downloader(new OkHttp3Downloader(context));
+//        builder.build().load(mEvents.get(position).getLogo().getUrl())
+//                .placeholder((R.drawable.ic_launcher_background))
+//                .error(R.drawable.ic_launcher_background)
+//                .into(holder.coverImage);
 
     }
 

@@ -33,7 +33,6 @@ import retrofit2.Response;
 
 public class HomeActivity extends AppCompatActivity  {
 
-    public static final String TAG = HomeActivity.class.getSimpleName();
     private CurrentLocationAdapter adapter;
     private RecyclerView recyclerView;
     ProgressDialog progressDialog;
@@ -43,7 +42,7 @@ public class HomeActivity extends AppCompatActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        getMyEvents("nairobi");
+        getMyEvents("kileleshwa");
     }
 
     @Override
@@ -70,7 +69,6 @@ public class HomeActivity extends AppCompatActivity  {
             public boolean onQueryTextSubmit(String query) {
                 Intent intent = new Intent(HomeActivity.this, HomeActivity.class);
                 intent.putExtra("query", query);
-                Log.v(TAG,"LOCATION NAME: " + query);
                 getMyEvents(query);
                 startActivity(intent);
                 return false;
