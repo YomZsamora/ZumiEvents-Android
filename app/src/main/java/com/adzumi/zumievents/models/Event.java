@@ -4,6 +4,9 @@ package com.adzumi.zumievents.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Event {
 
     @SerializedName("name")
@@ -36,12 +39,12 @@ public class Event {
     @SerializedName("changed")
     @Expose
     private String changed;
-    @SerializedName("capacity")
-    @Expose
-    private Object capacity;
-    @SerializedName("capacity_is_custom")
-    @Expose
-    private Object capacityIsCustom;
+//    @SerializedName("capacity")
+//    @Expose
+//    private Object capacity;
+//    @SerializedName("capacity_is_custom")
+//    @Expose
+//    private Object capacityIsCustom;
     @SerializedName("status")
     @Expose
     private String status;
@@ -114,9 +117,9 @@ public class Event {
     @SerializedName("category_id")
     @Expose
     private String categoryId;
-    @SerializedName("subcategory_id")
-    @Expose
-    private Object subcategoryId;
+//    @SerializedName("subcategory_id")
+//    @Expose
+//    private Object subcategoryId;
     @SerializedName("format_id")
     @Expose
     private String formatId;
@@ -126,6 +129,8 @@ public class Event {
     @SerializedName("logo")
     @Expose
     private Logo logo;
+
+    private String pushId;
 
     /**
      * No args constructor for use in serialization
@@ -189,8 +194,8 @@ public class Event {
         this.organizationId = organizationId;
         this.created = created;
         this.changed = changed;
-        this.capacity = capacity;
-        this.capacityIsCustom = capacityIsCustom;
+//        this.capacity = capacity;
+//        this.capacityIsCustom = capacityIsCustom;
         this.status = status;
         this.currency = currency;
         this.listed = listed;
@@ -215,7 +220,7 @@ public class Event {
         this.organizerId = organizerId;
         this.venueId = venueId;
         this.categoryId = categoryId;
-        this.subcategoryId = subcategoryId;
+//        this.subcategoryId = subcategoryId;
         this.formatId = formatId;
         this.resourceUri = resourceUri;
         this.logo = logo;
@@ -301,20 +306,20 @@ public class Event {
         this.changed = changed;
     }
 
-    public Object getCapacity() {
-        return capacity;
-    }
+//    public Object getCapacity() {
+//        return capacity;
+//    }
 
-    public void setCapacity(Object capacity) {
-        this.capacity = capacity;
-    }
+//    public void setCapacity(Object capacity) {
+//        this.capacity = capacity;
+//    }
 
-    public Object getCapacityIsCustom() {
-        return capacityIsCustom;
-    }
+//    public Object getCapacityIsCustom() {
+//        return capacityIsCustom;
+//    }
 
     public void setCapacityIsCustom(Object capacityIsCustom) {
-        this.capacityIsCustom = capacityIsCustom;
+//        this.capacityIsCustom = capacityIsCustom;
     }
 
     public String getStatus() {
@@ -509,13 +514,13 @@ public class Event {
         this.categoryId = categoryId;
     }
 
-    public Object getSubcategoryId() {
-        return subcategoryId;
-    }
+//    public Object getSubcategoryId() {
+//        return subcategoryId;
+//    }
 
-    public void setSubcategoryId(Object subcategoryId) {
-        this.subcategoryId = subcategoryId;
-    }
+//    public void setSubcategoryId(Object subcategoryId) {
+//        this.subcategoryId = subcategoryId;
+//    }
 
     public String getFormatId() {
         return formatId;
@@ -541,4 +546,11 @@ public class Event {
         this.logo = logo;
     }
 
+    public String getPushId() {
+        return pushId;
+    }
+
+    public void setPushId(String pushId) {
+        this.pushId = pushId;
+    }
 }

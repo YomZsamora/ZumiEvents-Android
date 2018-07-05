@@ -4,6 +4,9 @@ package com.adzumi.zumievents.models;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
+import org.parceler.Parcel;
+
+@Parcel
 public class Logo {
 
     @SerializedName("crop_mask")
@@ -21,9 +24,9 @@ public class Logo {
     @SerializedName("aspect_ratio")
     @Expose
     private String aspectRatio;
-    @SerializedName("edge_color")
-    @Expose
-    private Object edgeColor;
+//    @SerializedName("edge_color")
+//    @Expose
+//    private Object edgeColor;
     @SerializedName("edge_color_set")
     @Expose
     private Boolean edgeColorSet;
@@ -52,7 +55,7 @@ public class Logo {
         this.id = id;
         this.url = url;
         this.aspectRatio = aspectRatio;
-        this.edgeColor = edgeColor;
+//        this.edgeColor = edgeColor;
         this.edgeColorSet = edgeColorSet;
     }
 
@@ -96,13 +99,13 @@ public class Logo {
         this.aspectRatio = aspectRatio;
     }
 
-    public Object getEdgeColor() {
-        return edgeColor;
-    }
+//    public Object getEdgeColor() {
+//        return edgeColor;
+//    }
 
-    public void setEdgeColor(Object edgeColor) {
-        this.edgeColor = edgeColor;
-    }
+//    public void setEdgeColor(Object edgeColor) {
+//        this.edgeColor = edgeColor;
+//    }
 
     public Boolean getEdgeColorSet() {
         return edgeColorSet;

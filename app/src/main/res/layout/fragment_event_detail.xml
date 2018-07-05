@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    tools:context=".ui.EventDetailFragment">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="529dp"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/bookImageDetail"
+            android:layout_width="match_parent"
+            android:layout_height="158dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="21dp"
+            android:contentDescription="Book Image"
+            android:scaleType="fitCenter"
+            android:src="@drawable/appbar_image" />
+
+        <TextView
+            android:id="@+id/bookTitleDetail"
+            android:layout_width="287dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="211dp"
+            android:fontFamily="@font/merriweather_bold"
+            android:gravity="center"
+            android:text="The Shining (The Shining, #1)"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="15dp" />
+
+        <TextView
+            android:id="@+id/bookAuthorName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bookTitleDetail"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/merriweather_light"
+            android:text="By Stephen King"
+            android:textSize="12dp" />
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/bookAuthorName"
+            android:layout_centerHorizontal="true">
+
+            <RatingBar
+                android:id="@+id/ratingBar2"
+                style="?android:attr/ratingBarStyleSmall"
+                android:layout_width="wrap_content"
+                android:layout_height="14dp"
+                android:layout_marginLeft="12dp"
+                android:layout_marginStart="12dp"
+                android:numStars="5"
+                android:progressTint="@color/colorPrimaryDark"
+                android:rating="3.52" />
+
+            <TextView
+                android:id="@+id/rateTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/merriweather_light"
+                android:text="3.52"
+                app:layout_constraintStart_toEndOf="@+id/ratingBar2"
+                tools:layout_editor_absoluteY="1dp"
+                tools:ignore="MissingConstraints" />
+
+            <TextView
+                android:id="@+id/ratingsTextView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="4dp"
+                android:layout_marginStart="4dp"
+                android:fontFamily="@font/merriweather_light"
+                android:text="885 145 Ratings"
+                app:layout_constraintStart_toEndOf="@+id/rateTextView"
+                tools:layout_editor_absoluteY="1dp"
+                tools:ignore="MissingConstraints" />
+
+        </android.support.constraint.ConstraintLayout>
+
+        <Button
+            android:id="@+id/saveBookButton"
+            android:layout_width="299dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="167dp"
+            android:fontFamily="@font/merriweather_regular"
+            android:text="Save This Book"
+            android:textAllCaps="false" />
+
+    </RelativeLayout>
+</FrameLayout>

@@ -1,6 +1,7 @@
 package com.adzumi.zumievents.adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
@@ -11,8 +12,11 @@ import android.widget.TextView;
 
 import com.adzumi.zumievents.R;
 import com.adzumi.zumievents.models.Event;
+import com.adzumi.zumievents.ui.EventDetailActivity;
 import com.jakewharton.picasso.OkHttp3Downloader;
 import com.squareup.picasso.Picasso;
+
+import org.parceler.Parcels;
 
 import java.util.List;
 
@@ -29,7 +33,7 @@ public class CurrentLocationAdapter extends RecyclerView.Adapter<CurrentLocation
         this.mEvents = mEvents;
     }
 
-    class CustomViewHolder extends RecyclerView.ViewHolder {
+    class CustomViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public final View mView;
 
@@ -41,6 +45,16 @@ public class CurrentLocationAdapter extends RecyclerView.Adapter<CurrentLocation
             super(itemView);
             mView = itemView;
             ButterKnife.bind(this, mView);
+            itemView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            int itemPosition = getAdapterPosition();
+            Intent intent = new Intent(context, EventDetailActivity.class);
+            intent.putExtra("position", itemPosition);
+            intent.putExtra("event", Parcels.wrap(mEvents));
+            context.startActivity(intent);
         }
     }
 
