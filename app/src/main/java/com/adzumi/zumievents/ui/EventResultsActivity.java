@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.adzumi.zumievents.Constants;
 import com.adzumi.zumievents.R;
 import com.adzumi.zumievents.adapters.CurrentLocationAdapter;
+import com.adzumi.zumievents.adapters.KeywordEventsAdapter;
 import com.adzumi.zumievents.models.Event;
 import com.adzumi.zumievents.models.Events;
 import com.adzumi.zumievents.services.API_Instance;
@@ -38,6 +39,7 @@ public class EventResultsActivity extends AppCompatActivity {
     private TextView mTextMessage;
     ProgressDialog progressDialog;
     private RecyclerView recyclerView;
+    private KeywordEventsAdapter adapter;
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener
             = new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -141,7 +143,7 @@ public class EventResultsActivity extends AppCompatActivity {
 
     public void getKeyWordEvents(List<Event> events) {
         recyclerView = findViewById(R.id.myEventsRecyclerView);
-        adapter = new CurrentLocationAdapter(this,events);
+        adapter = new KeywordEventsAdapter(this,events);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(EventResultsActivity.this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
