@@ -12,6 +12,7 @@ import android.support.v7.widget.SearchView;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.widget.Toast;
 
 import com.adzumi.zumievents.Constants;
@@ -21,6 +22,7 @@ import com.adzumi.zumievents.models.Event;
 import com.adzumi.zumievents.models.Events;
 import com.adzumi.zumievents.services.API_Instance;
 import com.adzumi.zumievents.services.RetrofitClient;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.gson.Gson;
 
 import java.util.List;
@@ -77,6 +79,16 @@ public class HomeActivity extends AppCompatActivity  {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+        if (id == R.id.action_logout) {
+            logout();
+            return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
     public void getMyEvents(String query) {
         API_Instance service = RetrofitClient.getClient("https://www.eventbriteapi.com/v3/").create(API_Instance.class);
         Call<Events> call = service.getEvents(query, Constants.EVENTBRITE_OAUTHTOKEN);
@@ -92,9 +104,9 @@ public class HomeActivity extends AppCompatActivity  {
                 List<Event> events = response.body().getEvents();
                 getCurrentLocationEvents(events);
                 progressDialog.dismiss();
-                for (Event e : events) {
-                    Log.d(TAG, "Event " + e.getDescription().getText());
-                }
+//                for (Event e : events) {
+//                    Log.d(TAG, "Event " + e.getDescription().getText());
+//                }
 //              Gson gson = new Gson();
 //              String eventsJson = gson.toJson(events);
 //              Log.v(TAG, "MY JSON RESPONSE: " + eventsJson);
@@ -113,5 +125,13 @@ public class HomeActivity extends AppCompatActivity  {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(HomeActivity.this);
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setAdapter(adapter);
+    }
+
+    private void logout() {
+        FirebaseAuth.getInstance().signOut();
+        Intent intent = new Intent(HomeActivity.this, MainActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 }
